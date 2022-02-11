@@ -1,0 +1,11 @@
+.noproducts {
+  min-height: 500px;
+}
+
+.noproducts p {
+  font-size: 1.6rem;
+}
+
+.noproducts img {
+  width: 300px;
+}

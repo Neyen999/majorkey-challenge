@@ -1,34 +1,52 @@
 import * as React from "react";
+import "../theme.css";
 import {Context} from "./context/Context";
-import {Modal} from "./components/Modal";
-import {Header} from "./components/Header";
-import {Count } from "./components/Count";
-import {Pagination} from "./components/Pagination";
-import {MarketProductList} from "./components/containers/ItemList/MarketProductList";
-import {Loader} from "./components/Loader";
-import {NoProducts} from "./components/NoProducts";
+import {Modal} from "./components/Modal/Modal";
+import {Header} from "./components/Header/Header";
+import {Count } from "./components/Count/Count";
+import {Pagination} from "./components/Pagination/Pagination";
+import {MarketProductList} from "./components/ItemList/container/MarketProductList";
+import {Button} from "./components/Button/Button";
+import {Loader} from "./components/Loader/Loader";
+import {NoProducts} from "./components/NoProducts/NoProducts";
 
 const App: React.FC = () => {
-  const {loading, products, currentPage, currentProducts, paginate, openModal, totalPages} = React.useContext(Context);
+  const {loading, items, currentPage, currentItems, paginate, openModal, totalPages} = React.useContext(Context);
+
+  const [theme, setTheme] = React.useState<string>("light");
+  const toggleTheme = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light")
+  }
 
   return (
-    <main className="main">
+    <main className={`main ${theme}`}>
       <Modal />
       <Header />
-      <Count products={products}/>
+      <Count items={items}/>
         {
         loading    ?
         <Loader /> :
-        // When it finished loading, check if there is any product
-        (currentProducts.length ?
+        (currentItems.length ?
           <>
             <Pagination totalPages={totalPages} currentPage={currentPage} paginate={paginate}/>
-            <MarketProductList currentProducts={currentProducts}/>
+            <MarketProductList currentItems={currentItems}/>
           </>
          : <NoProducts />
         )}
         <div className="form-container container">
-          <button className="bluebg heightfifthy" onClick={() => openModal()}>Add item</button>
+          <Button
+            buttonClass="reset primary-btn primary-form--btn"
+            buttonText="Add Item"
+            onClick={openModal}
+            disabled={false}
+          />
+        </div>
+        <div className="change-theme" onClick={toggleTheme}>
+        {
+          theme === "light"
+          ? <i style={{cursor: 'pointer'}} className="fa-solid fa-moon dark"></i>
+          : <i style={{cursor: 'pointer'}} className="fa-solid fa-sun light"></i>
+        }
         </div>
     </main>
   );

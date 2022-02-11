@@ -1,3 +1,29 @@
+# My challenge solution
+
+Hi, my name is Neyen and im a Frontend Developer in Argentina, and this is my solution to the challenge.
+
+## Run this project
+
+1. First, clone the repository.
+    ```
+    git clone https://github.com/Neyen999/majorkey-challenge.git
+    ```
+2. Once you have the project on your computer, run:
+    ```
+    npm install
+    ```
+   to install the packages. If you are using NPM, else run:
+    ```
+    yarn install
+    ```
+3. Now run:
+    ```
+    npm run start
+    ```
+   to init the project in a local server.
+
+## In depth
+
 ![Tradehelm](./public/logo.svg "TradeHelm")
 
 En el camino desde mi casa al supermercado, mi cerebro pierde la capacidad de retener información, por ende necesito hacer una aplicación que se encargue de esa difícil tarea. No, no puedo usar Google Keep, Evernote, nada, soy dev, la tengo que hacer, además esto es un challenge así que agarrá la pala.

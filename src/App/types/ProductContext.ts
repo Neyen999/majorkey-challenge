@@ -1,14 +1,14 @@
 import {Item} from "./Item";
 
-export interface ProductContext {
+export interface ItemContext {
   loading: boolean,
-  products: Item[]
-  addProduct: (newItem: any) => void,
-  deleteProduct: (id: Date) => void,
-  checkProduct: (id: Date) => void,
-  uncheckProduct: (id: Date) => void,
+  items: Item[]
+  addItem: (newItem: any) => void,
+  deleteItem: (id: Date) => void,
+  checkItem: (id: Date) => void,
+  uncheckItem: (id: Date) => void,
   currentPage: number,
-  currentProducts: Item[],
+  currentItems: Item[],
   totalPages: number,
   paginate: (page: number) => void,
   modal: boolean,
